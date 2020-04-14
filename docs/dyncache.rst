@@ -1,8 +1,16 @@
 dyncache package
 ================
 
-dyncache.dyncache
------------------
+Module contents
+---------------
+
+.. automodule:: dyncache
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+dyncache.dyncache module
+------------------------
 
 .. automodule:: dyncache.dyncache
    :members:
