@@ -5,6 +5,8 @@ Examples
    
    # Import the class
    from dyncache import Cache
+   # Alternatively you may use the lowercased name
+   from dyncache import cache
 
 
    # Use with default options. It will create a file "circle_area.dyncache" into
