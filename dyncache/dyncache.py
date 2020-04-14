@@ -99,7 +99,7 @@ class Cache:
 
     def write(self):
         """
-        Read the cache file.
+        Write the cache file.
         """
 
         with self.cachepath.open("wb") as f:
