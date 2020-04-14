@@ -44,7 +44,7 @@ class Cache:
         self.filename = None
         self.largeitems = False
         self.logs = True
-        self.autowrite = False
+        self.autowrite = True
 
         self.function = None
         self.functionhash = None
