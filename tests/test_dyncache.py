@@ -1,4 +1,4 @@
-from dyncache import Cache, FunctionHashMismatch
+from dyncache import cache, Cache, FunctionHashMismatch
 from pathlib import Path
 import pytest
 
@@ -451,6 +451,32 @@ def test_functionchange():
 
     globals()["__cached__"] = True
     assert f6(1, 2) == 2
+    assert globals()["__cached__"]
+
+    if cachepath.exists():
+        cachepath.unlink()
+
+
+def test_lowercased_decorator():
+    cachepath = Path("lowercased.dyncache")
+    if cachepath.exists():
+        cachepath.unlink()
+
+    @cache
+    def lowercased(a, b):
+        globals()["__cached__"] = False
+        return a * a / b
+
+    globals()["__cached__"] = True
+    assert lowercased(1, 2) == 0.5
+    assert not globals()["__cached__"]
+
+    globals()["__cached__"] = True
+    assert lowercased(1, 1) == 1.0
+    assert not globals()["__cached__"]
+
+    globals()["__cached__"] = True
+    assert lowercased(1, 2) == 0.5
     assert globals()["__cached__"]
 
     if cachepath.exists():
